@@ -10,8 +10,9 @@ const GlobalStyle = ({ children }: Props) => {
   return (
     <div
       css={css`
-        width: 414px;
         margin: 0 auto;
+        width: 434px;
+        height: 100vh;
       `}>
       <Global styles={reset} />
       {children}
