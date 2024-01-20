@@ -46,6 +46,9 @@ const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  li {
+    list-style: none;
+  }
 `;
 
 export default reset;
