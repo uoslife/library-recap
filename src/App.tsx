@@ -1,7 +1,12 @@
 import GlobalStyle from './styles/GlobalStyle';
+import MainContainer from './components/containers/MainContainer/MainContainer';
 
 const App = () => {
-  return <GlobalStyle />;
+  return (
+    <GlobalStyle>
+      <MainContainer />
+    </GlobalStyle>
+  );
 };
 
 export default App;
