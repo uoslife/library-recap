@@ -13,7 +13,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@swc/plugin-emotion": "^2.5.110",
-    "@uoslife/design-system": "^1.1.2",
+    "@uoslife/design-system": "^1.2.1",
     "@uoslife/webview": "^0.0.4",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
