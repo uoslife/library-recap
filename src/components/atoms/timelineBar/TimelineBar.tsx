@@ -29,7 +29,7 @@ const TimelineBar = ({ status }: Props) => {
 
   return (
     <S.Bar
-      // onAnimationEnd={() => timelineState!.moveNextTimeline()}
+      onAnimationEnd={() => timelineState!.moveNextTimeline()}
       animateBar={animateBar}
       isMouseDown={timelineState!.isMouseDown}
     />
