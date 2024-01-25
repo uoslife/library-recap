@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import TimelineLayout from '../../layouts/TimelineLayout';
 import { css } from '@emotion/react';
 
@@ -17,10 +16,3 @@ const ThirdTimeline = () => {
 };
 
 export default ThirdTimeline;
-
-const S = {
-  Container: styled.div`
-    background: linear-gradient(180deg, #fff8b8 0%, #e2f1ff 53%, #acd7fe 100%);
-    height: 100%;
-  `,
-};
