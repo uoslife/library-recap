@@ -16,6 +16,8 @@ export default class APIClient {
   static async fetchWithToken(input: RequestInfo | URL) {
     const { accessToken } = await uoslifeBridge.getAccessToken();
     if (accessToken)
-      return await fetch(input, { headers: { Authorization: accessToken } });
+      return await fetch(input, {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
   }
 }
