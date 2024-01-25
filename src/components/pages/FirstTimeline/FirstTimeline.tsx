@@ -126,17 +126,37 @@ const FirstTimeline = () => {
           />
         </S.DescriptionWrapper>
         <S.PreferRegionImgWrapper>
-          <img src="/images/prefer_region.svg" />
-          <Txt
-            label={recapInfo?.preferRegion.libraryName ?? ''}
-            color={'grey190'}
-            typograph={'bodyLarge'}
-            style={css`
+          <div
+            css={css`
+              width: 294px;
               position: absolute;
-              right: 80.5px;
-              top: 42px;
-            `}
-          />
+              top: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+            `}>
+            <img src="/images/prefer_region.svg" />
+            <div
+              css={css`
+                position: absolute;
+                width: 80px;
+                top: 40px;
+                right: 0;
+              `}>
+              <Txt
+                label={recapInfo?.preferRegion.libraryName ?? ''}
+                color={'grey190'}
+                typograph={'bodyLarge'}
+                style={css`
+                  position: absolute;
+                  top: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: fit-content;
+                  white-space: nowrap;
+                `}
+              />
+            </div>
+          </div>
         </S.PreferRegionImgWrapper>
       </div>
     </TimelineLayout>
@@ -154,11 +174,11 @@ const S = {
     gap: 48px;
   `,
   PreferRegionImgWrapper: styled.div`
-    display: flex;
+    display: inline-block;
+    /* display: inline-flex; */
     align-items: center;
     justify-content: center;
     position: relative;
-    /* display: inline-block; */
   `,
   DescriptionWrapper: styled.div`
     width: 100%;
