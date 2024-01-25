@@ -4,7 +4,7 @@ import useUserStore from '../../../store/user';
 import { setBackgroundByUsageRankingLevel } from '../../../utils/setStyle';
 import TimelineLayout from '../../layouts/TimelineLayout';
 import { css } from '@emotion/react';
-import { usageRankingLevelText } from '../../../constants/usageRankingLevel';
+import { usageRankingLevelText } from '../../../constants/timelineText';
 import { setImageUrlByUsageRankingLevel } from '../../../utils/setImageUrl';
 
 type Props = {
