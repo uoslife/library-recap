@@ -1,11 +1,11 @@
-export const usageTimeBarData = (labels: Array<number>) => {
+export const usageTimeBarData = (data: Array<number>) => {
   return {
-    labels,
+    labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
     datasets: [
       {
         label: '',
         display: false,
-        data: [65, 59, 80, 81, 56, 55, 40, 23, 42, 32, 67, 46],
+        data,
         backgroundColor: '#4686FF',
         borderRadius: 100,
       },
