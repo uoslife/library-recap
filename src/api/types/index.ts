@@ -1,4 +1,13 @@
-export type GetLibraryHistoriesResponse = {
+export type UserStyleType = 'MORNING' | 'DAY' | 'NIGHT';
+export type UsageRankingLevel = 0 | 1 | 2 | 3;
+
+export type UsageRankingType = {
+  standard: string;
+  ranking: number;
+  level: UsageRankingLevel;
+};
+
+export type RecapInfoType = {
   usageTime: {
     useTime: number;
     useHour: number;
@@ -8,17 +17,8 @@ export type GetLibraryHistoriesResponse = {
     libraryName: string;
     roomName: string;
   };
-  userStyle: 'DAY' | 'NIGHT' | 'MORNING';
-  usageRanking: [
-    {
-      standard: string;
-      ranking: number;
-      level: 0 | 1 | 2 | 3;
-    },
-    {
-      standard: string;
-      ranking: number;
-      level: 0 | 1 | 2 | 3;
-    },
-  ];
+  userStyle: UserStyleType;
+  usageRanking: Array<UsageRankingType>;
 };
+
+export type GetLibraryHistoriesResponse = RecapInfoType;
