@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Txt } from '@uoslife/design-system/web';
 
 type Props = { setTimelineView: () => void };
 
@@ -12,9 +13,43 @@ const MainPage = ({ setTimelineView }: Props) => {
         `}
         src={'/images/main_character.png'}
       />
-      <p>정세윤님의 2023년 중앙도서관 여정</p>
-      <p>2023년도를 되돌아보며, 자신의 공부량을 확인해 보세요!</p>
-      <button onClick={setTimelineView}>확인하기</button>
+      <S.DescriptionWrapper>
+        <p>
+          <p
+            css={css`
+              display: flex;
+            `}>
+            <Txt
+              label={'00'}
+              color={'primaryBrand'}
+              typograph={'headlineLarge'}
+            />
+            <Txt
+              label={'님의 2023년'}
+              color={'black'}
+              typograph={'headlineLarge'}
+            />
+          </p>
+          <Txt
+            label={'중앙도서관 여정'}
+            color={'black'}
+            typograph={'headlineLarge'}
+          />
+        </p>
+        <p>
+          <Txt
+            label={'2023년도를 되돌아보며,'}
+            color={'black'}
+            typograph={'bodyLarge'}
+          />
+          <Txt
+            label={'자신의 공부량을 확인해 보세요!'}
+            color={'black'}
+            typograph={'bodyLarge'}
+          />
+        </p>
+        <button onClick={setTimelineView}>확인하기</button>
+      </S.DescriptionWrapper>
     </S.Container>
   );
 };
@@ -33,5 +68,13 @@ const S = {
     flex-direction: column;
     align-items: center;
     padding-top: 90px;
+    gap: 23px;
+  `,
+  DescriptionWrapper: styled.div`
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   `,
 };
