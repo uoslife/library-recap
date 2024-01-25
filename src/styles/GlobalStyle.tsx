@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { Global, css } from '@emotion/react';
 import reset from './reset';
+import { fontFace } from './font';
 
 type Props = {
   children: React.ReactElement;
@@ -14,7 +15,7 @@ const GlobalStyle = ({ children }: Props) => {
         width: 434px;
         height: 100vh;
       `}>
-      <Global styles={reset} />
+      <Global styles={[reset, fontFace]} />
       {children}
     </div>
   );
