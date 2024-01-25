@@ -5,6 +5,8 @@ on:
     branches:
       - master
 
+# You can authenticate AWS workloads using OIDC.
+# @docs https://docs.github.com/ko/enterprise-cloud@latest/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services
 permissions:
   id-token: write
   contents: read
@@ -12,6 +14,7 @@ permissions:
 env:
   AWS_REGION: ap-northeast-2
   AWS_ROLE: arn:aws:iam::755333364809:role/GithubS3Role
+  UOSLIFE_TOKEN: ${{ secrets.UOSLIFE_TOKEN }}
 
 jobs:
   deploy:
@@ -26,7 +29,7 @@ jobs:
 
       - name: Install Dependencies
         env:
-          UOSLIFE_TOKEN: ${{ secrets.UOSLIFE_TOKEN }}
+          UOSLIFE_TOKEN: ${{ env.UOSLIFE_TOKEN }}
         run: bun install
 
       - name: Build
