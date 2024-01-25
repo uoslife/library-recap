@@ -12,7 +12,6 @@ const GlobalStyle = ({ children }: Props) => {
     <div
       css={css`
         margin: 0 auto;
-        width: 434px;
         height: 100vh;
       `}>
       <Global styles={[reset, fontFace]} />
