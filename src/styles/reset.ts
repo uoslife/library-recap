@@ -6,6 +6,7 @@ const reset = css`
     padding: 0;
     font: inherit;
     color: inherit;
+    -webkit-user-select: none;
   }
   *,
   :after,
