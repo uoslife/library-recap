@@ -4,9 +4,8 @@ import useUserStore from '../../../store/user';
 import TimelineLayout from '../../layouts/TimelineLayout';
 import { css } from '@emotion/react';
 import { setBackgroundByUserStyle } from '../../../utils/setStyle';
-import { setImageUrlByUserStyle } from '../../../utils/setImageUrl';
 
-const SecondTimeline = () => {
+export const SecondTimeline = () => {
   const { user } = useUserStore();
   const { recapInfo } = useRecapInfoStore();
   const isNight = recapInfo?.userStyle === 'NIGHT';
@@ -33,7 +32,7 @@ const SecondTimeline = () => {
         css={css`
           height: 250px;
         `}
-        src={setImageUrlByUserStyle(recapInfo?.userStyle ?? 'DAY')}
+        src={setImageUrlByUserStyle()}
       />
       <div
         css={css`
@@ -56,5 +55,3 @@ const SecondTimeline = () => {
     </TimelineLayout>
   );
 };
-
-export default SecondTimeline;

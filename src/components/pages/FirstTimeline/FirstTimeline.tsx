@@ -12,6 +12,13 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { Txt } from '@uoslife/design-system/web';
+import useUserStore from '../../../store/user';
+import useRecapInfoStore from '../../../store/recapInfo';
+import {
+  usageTimeBarData,
+  usageTimeBarOptions,
+} from '../../../constants/usageTimeBar';
+import Icon from '../../atoms/Icon';
 
 ChartJS.register(
   CategoryScale,
@@ -23,65 +30,43 @@ ChartJS.register(
 );
 
 const FirstTimeline = () => {
-  const data = {
-    labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-    datasets: [
-      {
-        label: '',
-        display: false,
-        data: [65, 59, 80, 81, 56, 55, 40, 23, 42, 32, 67, 46],
-        backgroundColor: '#4686FF',
-        borderRadius: 100,
-      },
-    ],
-  };
-  const options = {
-    scales: {
-      x: {
-        grid: {
-          display: false,
-        },
-      },
-      y: {
-        display: false,
-        grid: {
-          display: false,
-        },
-      },
-    },
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-  };
+  const { user } = useUserStore();
+  const { recapInfo } = useRecapInfoStore();
+
   return (
     <TimelineLayout
       css={css`
-        padding-left: 16px;
-        padding-right: 16px;
+        width: 90%;
+        margin: 0 auto;
       `}>
       <div
         css={css`
           display: flex;
           flex-direction: column;
           gap: 16px;
+          width: 100%;
         `}>
-        <S.DiscriptionWrapper>
-          <Txt label={'이용시간'} color={'grey90'} typograph={'labelLarge'} />
-          <p
+        <S.DescriptionWrapper>
+          <S.DescriptionTitleWrapper>
+            <Icon name="clock" />
+            <Txt label={'이용시간'} color={'grey90'} typograph={'labelLarge'} />
+          </S.DescriptionTitleWrapper>
+          <div
             css={css`
               display: flex;
             `}>
             <Txt
-              label={'00'}
+              label={user?.nickname ?? ''}
               color={'primaryBrand'}
               typograph={'headlineMedium'}
             />
-            <Txt label={'님은'} color={'black'} typograph={'headlineMedium'} />
-
             <Txt
-              label={`365일`}
+              label={'님은'}
+              color={'grey190'}
+              typograph={'headlineMedium'}
+            />
+            <Txt
+              label={`${recapInfo?.usageTime.useHour ?? ''}일`}
               color={'primaryBrand'}
               typograph={'headlineMedium'}
               style={css`
@@ -90,20 +75,20 @@ const FirstTimeline = () => {
             />
             <Txt
               label={'출석하여'}
-              color={'black'}
+              color={'grey190'}
               typograph={'headlineMedium'}
               style={css`
                 text-indent: 6px;
               `}
             />
-          </p>
-          <p
+          </div>
+          <div
             css={css`
               display: flex;
             `}>
-            <Txt label={'총'} color={'black'} typograph={'headlineMedium'} />
+            <Txt label={'총'} color={'grey190'} typograph={'headlineMedium'} />
             <Txt
-              label={'200시간'}
+              label={`${recapInfo?.usageTime.useTime ?? ''}시간`}
               color={'primaryBrand'}
               typograph={'headlineMedium'}
               style={css`
@@ -112,12 +97,15 @@ const FirstTimeline = () => {
             />
             <Txt
               label={'을 공부했어요.'}
-              color={'black'}
+              color={'grey190'}
               typograph={'headlineMedium'}
             />
-          </p>
-        </S.DiscriptionWrapper>
-        <Bar data={data} options={options} />
+          </div>
+        </S.DescriptionWrapper>
+        <Bar
+          data={usageTimeBarData(recapInfo?.usageTime.hourData ?? [])}
+          options={usageTimeBarOptions}
+        />
       </div>
       <div
         css={css`
@@ -126,19 +114,22 @@ const FirstTimeline = () => {
           flex-direction: column;
           gap: 20px;
         `}>
-        <S.DiscriptionWrapper>
-          <Txt label={'좌석'} color={'grey90'} typograph={'labelLarge'} />
+        <S.DescriptionWrapper>
+          <S.DescriptionTitleWrapper>
+            <Icon name="chair" />
+            <Txt label={'좌석'} color={'grey90'} typograph={'labelLarge'} />
+          </S.DescriptionTitleWrapper>
           <Txt
             label={`${'00'}님의 선호 구역이에요.`}
-            color={'black'}
+            color={'grey190'}
             typograph={'headlineMedium'}
           />
-        </S.DiscriptionWrapper>
+        </S.DescriptionWrapper>
         <S.PreferRegionImgWrapper>
           <img src="/images/prefer_region.svg" />
           <Txt
-            label={'공존'}
-            color={'black'}
+            label={recapInfo?.preferRegion.libraryName ?? ''}
+            color={'grey190'}
             typograph={'bodyLarge'}
             style={css`
               position: absolute;
@@ -169,10 +160,14 @@ const S = {
     position: relative;
     /* display: inline-block; */
   `,
-  DiscriptionWrapper: styled.div`
+  DescriptionWrapper: styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 4px;
+  `,
+  DescriptionTitleWrapper: styled.div`
+    display: flex;
     gap: 4px;
   `,
 };

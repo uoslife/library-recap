@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { Txt } from '@uoslife/design-system/web';
 
 type Props = {
   count: number;
@@ -15,13 +16,9 @@ const ListCountCircle = ({ count }: Props) => {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 2px;
       `}>
-      <p
-        css={css`
-          color: white;
-        `}>
-        {count}
-      </p>
+      <Txt label={count.toString()} color={'white'} typograph={'bodyMedium'} />
     </div>
   );
 };

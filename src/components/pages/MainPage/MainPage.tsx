@@ -1,10 +1,12 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Txt } from '@uoslife/design-system/web';
+import { Txt, colors } from '@uoslife/design-system/web';
+import useUserStore from '../../../store/user';
 
 type Props = { setTimelineView: () => void };
 
 const MainPage = ({ setTimelineView }: Props) => {
+  const { user } = useUserStore();
   return (
     <S.Container>
       <img
@@ -14,41 +16,47 @@ const MainPage = ({ setTimelineView }: Props) => {
         src={'/images/main_character.png'}
       />
       <S.DescriptionWrapper>
-        <p>
-          <p
+        <div>
+          <div
             css={css`
               display: flex;
             `}>
             <Txt
-              label={'00'}
+              label={user?.nickname ?? ''}
               color={'primaryBrand'}
               typograph={'headlineLarge'}
             />
             <Txt
               label={'님의 2023년'}
-              color={'black'}
+              color={'grey190'}
               typograph={'headlineLarge'}
             />
-          </p>
+          </div>
           <Txt
             label={'중앙도서관 여정'}
-            color={'black'}
+            color={'grey190'}
             typograph={'headlineLarge'}
           />
-        </p>
-        <p>
+        </div>
+        <div>
           <Txt
             label={'2023년도를 되돌아보며,'}
-            color={'black'}
+            color={'grey190'}
             typograph={'bodyLarge'}
           />
           <Txt
             label={'자신의 공부량을 확인해 보세요!'}
-            color={'black'}
+            color={'grey190'}
             typograph={'bodyLarge'}
           />
-        </p>
-        <button onClick={setTimelineView}>확인하기</button>
+        </div>
+        <S.Button onClick={setTimelineView}>
+          <Txt
+            label={'확인하기'}
+            color={'primaryBrand'}
+            typograph={'bodyLarge'}
+          />
+        </S.Button>
       </S.DescriptionWrapper>
     </S.Container>
   );
@@ -71,10 +79,18 @@ const S = {
     gap: 23px;
   `,
   DescriptionWrapper: styled.div`
-    width: 100%;
-    padding: 0 16px;
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 8px;
+  `,
+  Button: styled.button`
+    margin-top: 36px;
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: ${colors.white};
   `,
 };
