@@ -68,7 +68,6 @@ const S = {
   Container: styled.div`
     background-image: url('/images/main_bg.png');
     background-size: 100%;
-    background-repeat: no-repeat;
     object-fit: cover;
     width: 100%;
     height: 100%;
