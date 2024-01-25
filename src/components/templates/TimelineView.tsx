@@ -71,11 +71,12 @@ const TimelineView = () => {
   return (
     <TimelineContext.Provider value={{ isMouseDown, moveNextTimeline }}>
       <S.Container
-        onMouseDown={() => {
+        onTouchStart={e => {
+          console.log(e);
           setPressTime(new Date().valueOf());
           setIsMouseDown(true);
         }}
-        onMouseUp={() => {
+        onTouchEnd={() => {
           setPressTime(new Date().valueOf() - pressTime);
           setIsMouseDown(false);
         }}>
