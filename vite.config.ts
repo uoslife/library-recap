@@ -11,6 +11,11 @@ export default defineConfig(({ mode }) => {
         plugins: [['@swc/plugin-emotion', {}]],
       }),
     ],
+    resolve: {
+      alias: {
+        'react-native': 'react-native-web',
+      },
+    },
     server: {
       proxy: {
         '/core': {
