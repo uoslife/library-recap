@@ -16,7 +16,7 @@ const LastTimeline = () => {
       />
       <div
         css={css`
-          width: 80%;
+          width: 90%;
           display: flex;
           flex-direction: column;
           gap: 8px;
@@ -44,7 +44,7 @@ const LastTimeline = () => {
       </div>
       <ul
         css={css`
-          width: 80%;
+          width: 90%;
           display: flex;
           flex-direction: column;
           gap: 16px;
