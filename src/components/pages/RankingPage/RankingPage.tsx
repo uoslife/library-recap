@@ -11,6 +11,9 @@ type Props = {
   usageRankingOrder: 0 | 1;
 };
 
+const DEFAULT_USAGE_RANKING_LEVEL = 0;
+const MAX_USAGE_RANKING_LEVEL = 3;
+
 const RankingPage = ({ usageRankingOrder }: Props) => {
   const { user } = useUserStore();
   const { recapInfo } = useRecapInfoStore();
@@ -18,7 +21,7 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
   return (
     <TimelineLayout
       css={setBackgroundByUsageRankingLevel(
-        recapInfo?.usageRanking[0].level ?? 3,
+        recapInfo?.usageRanking[0].level ?? DEFAULT_USAGE_RANKING_LEVEL,
       )}>
       <div
         css={css`
@@ -61,7 +64,7 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
           <Txt
             label={
               recapInfo?.usageRanking[usageRankingOrder].ranking.toString() ??
-              '0'
+              DEFAULT_USAGE_RANKING_LEVEL.toString()
             }
             color={'primaryBrand'}
             typograph={'headlineLarge'}
@@ -84,7 +87,8 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
       </div>
       <img
         css={css`
-          height: ${recapInfo?.usageRanking[usageRankingOrder].level === 3
+          height: ${recapInfo?.usageRanking[usageRankingOrder].level ===
+          MAX_USAGE_RANKING_LEVEL
             ? '180px'
             : '250px'};
         `}
@@ -112,7 +116,7 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
             label={
               usageRankingLevelText[
                 recapInfo?.usageRanking[usageRankingOrder].level.toString() ??
-                  '0'
+                  DEFAULT_USAGE_RANKING_LEVEL.toString()
               ].title
             }
             color={'grey190'}
@@ -122,7 +126,8 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
             `}
           />
         </div>
-        {recapInfo?.usageRanking[usageRankingOrder].level === 3 ? (
+        {recapInfo?.usageRanking[usageRankingOrder].level ===
+        MAX_USAGE_RANKING_LEVEL ? (
           <Txt
             label={'Falco peregrinusTunstall, 1771'}
             color={'grey130'}
@@ -132,7 +137,8 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
         <Txt
           label={
             usageRankingLevelText[
-              recapInfo?.usageRanking[usageRankingOrder].level.toString() ?? '0'
+              recapInfo?.usageRanking[usageRankingOrder].level.toString() ??
+                DEFAULT_USAGE_RANKING_LEVEL.toString()
             ].subTitle
           }
           color={'grey130'}
