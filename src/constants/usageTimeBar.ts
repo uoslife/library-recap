@@ -20,15 +20,31 @@ export const usageTimeBarOptions = {
       },
     },
     y: {
-      display: false,
+      display: true,
       grid: {
-        display: false,
+        display: true,
+      },
+      border: { display: false },
+      ticks: {
+        display: true,
+        // @ts-expect-error: value: string; index: number;
+        callback: function (value, index) {
+          if (index % 2 === 0) return value;
+        },
       },
     },
   },
   plugins: {
     legend: {
       display: false,
+    },
+    datalabels: {
+      anchor: 'end',
+      align: 'top',
+      formatter: Math.round,
+      font: {
+        weight: 'bold',
+      },
     },
   },
 };
