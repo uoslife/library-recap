@@ -119,11 +119,21 @@ const FirstTimeline = () => {
             <Icon name="chair" />
             <Txt label={'좌석'} color={'grey90'} typograph={'labelLarge'} />
           </S.DescriptionTitleWrapper>
-          <Txt
-            label={`${'00'}님의 선호 구역이에요.`}
-            color={'grey190'}
-            typograph={'headlineMedium'}
-          />
+          <div
+            css={css`
+              display: flex;
+            `}>
+            <Txt
+              label={user?.nickname ?? ''}
+              color={'primaryBrand'}
+              typograph={'headlineMedium'}
+            />
+            <Txt
+              label={`님의 선호 구역이에요.`}
+              color={'grey190'}
+              typograph={'headlineMedium'}
+            />
+          </div>
         </S.DescriptionWrapper>
         <S.PreferRegionImgWrapper>
           <div
