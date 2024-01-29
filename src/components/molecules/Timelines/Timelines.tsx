@@ -2,6 +2,9 @@ import styled from '@emotion/styled';
 import TimelineBar from '../../atoms/timelineBar';
 import { useEffect, useMemo, useState } from 'react';
 import { TimelineOrder } from '../../templates/TimelineView';
+import Icon from '../../atoms/Icon';
+import { css } from '@emotion/react';
+import useHandleClearIcon from '../../../hooks/useHandleClearIcon';
 
 export type TimelineBarStatus = 'DISPLAYED' | 'DISPLAYING' | 'UNDISPLAYED';
 type TimelineBarStatusType = Array<{
@@ -14,6 +17,7 @@ type Props = {
 };
 
 const Timelines = ({ currentOrder }: Props) => {
+  const handleClickClearIcon = useHandleClearIcon();
   const initTimelineBarStatus: TimelineBarStatusType = useMemo(
     () =>
       Array(5)
@@ -45,6 +49,18 @@ const Timelines = ({ currentOrder }: Props) => {
           <TimelineBar key={item.index} status={item.status} />
         ))}
       </S.TimelinesWrapper>
+      <Icon
+        name={'clear'}
+        css={css`
+          position: absolute;
+          top: 50px;
+          right: 12px;
+          cursor: pointer;
+          z-index: 10;
+          padding: 4px;
+        `}
+        onClick={handleClickClearIcon}
+      />
     </S.Container>
   );
 };

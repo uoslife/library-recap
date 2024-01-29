@@ -2,13 +2,28 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Txt, colors } from '@uoslife/design-system/web';
 import useUserStore from '../../../store/user';
+import Icon from '../../atoms/Icon';
+import useHandleClearIcon from '../../../hooks/useHandleClearIcon';
 
 type Props = { setTimelineView: () => void };
 
 const MainPage = ({ setTimelineView }: Props) => {
   const { user } = useUserStore();
+
+  const handleClickClearIcon = useHandleClearIcon();
+
   return (
     <S.Container>
+      <Icon
+        name={'clear'}
+        css={css`
+          position: absolute;
+          top: 12px;
+          right: 16px;
+          cursor: pointer;
+        `}
+        onClick={handleClickClearIcon}
+      />
       <img
         css={css`
           width: 316px;
