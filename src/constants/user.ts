@@ -7,7 +7,7 @@ export const defaultUser = {
   birthday: '',
   phone: '000-0000-0000',
   avatarUrl: '',
-  isVerified: false,
+  isVerified: true,
   degree: '',
   enrollmentStatus: '',
   studentId: '0000000000',
