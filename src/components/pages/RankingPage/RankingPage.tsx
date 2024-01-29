@@ -18,9 +18,12 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
   return (
     <TimelineLayout
       css={setBackgroundByUsageRankingLevel(
-        recapInfo?.usageRanking[0].level ?? 0,
+        recapInfo?.usageRanking[0].level ?? 3,
       )}>
-      <div>
+      <div
+        css={css`
+          padding-right: 16px;
+        `}>
         <div
           css={css`
             display: flex;
@@ -38,7 +41,11 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
           `}>
           <Txt
             label={
-              recapInfo?.usageRanking[usageRankingOrder].standard ?? '시대생'
+              usageRankingOrder !== 1
+                ? recapInfo?.usageRanking[usageRankingOrder].standard ||
+                  '시대생'
+                : recapInfo?.usageRanking[usageRankingOrder].standard ||
+                  '전공학과'
             }
             color={'primaryBrand'}
             typograph={'headlineLarge'}
@@ -77,10 +84,12 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
       </div>
       <img
         css={css`
-          height: 250px;
+          height: ${recapInfo?.usageRanking[usageRankingOrder].level === 3
+            ? '180px'
+            : '250px'};
         `}
         src={setImageUrlByUsageRankingLevel(
-          recapInfo?.usageRanking[usageRankingOrder].level ?? 0,
+          recapInfo?.usageRanking[usageRankingOrder].level ?? 3,
         )}
       />
       <div
@@ -113,6 +122,13 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
             `}
           />
         </div>
+        {recapInfo?.usageRanking[usageRankingOrder].level === 3 ? (
+          <Txt
+            label={'Falco peregrinusTunstall, 1771'}
+            color={'grey130'}
+            typograph={'titleSmall'}
+          />
+        ) : null}
         <Txt
           label={
             usageRankingLevelText[
