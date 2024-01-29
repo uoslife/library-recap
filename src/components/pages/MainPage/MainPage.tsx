@@ -4,6 +4,8 @@ import { Txt, colors } from '@uoslife/design-system/web';
 import useUserStore from '../../../store/user';
 import Icon from '../../atoms/Icon';
 import useHandleClearIcon from '../../../hooks/useHandleClearIcon';
+import { useEffect } from 'react';
+import uoslifeBridge from '../../../bridge';
 
 type Props = { setTimelineView: () => void };
 
@@ -11,6 +13,15 @@ const MainPage = ({ setTimelineView }: Props) => {
   const { user } = useUserStore();
 
   const handleClickClearIcon = useHandleClearIcon();
+
+  useEffect(() => {
+    if (user?.isVerified === false) {
+      alert('포털연동 후 이용해주세요');
+      (async () => {
+        await uoslifeBridge.goBack();
+      })();
+    }
+  }, []);
 
   return (
     <S.Container>
