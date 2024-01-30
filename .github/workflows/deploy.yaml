@@ -15,6 +15,7 @@ env:
   AWS_REGION: ap-northeast-2
   AWS_ROLE: arn:aws:iam::755333364809:role/GithubS3Role
   UOSLIFE_TOKEN: ${{ secrets.UOSLIFE_TOKEN }}
+  VITE_BASE_API_URL: ${{ secrets.VITE_BASE_API_URL }}
 
 jobs:
   deploy:
@@ -29,6 +30,7 @@ jobs:
 
       - name: Install Dependencies
         env:
+          VITE_BASE_API_URL: ${{ env.VITE_BASE_API_URL }}
           UOSLIFE_TOKEN: ${{ env.UOSLIFE_TOKEN }}
         run: bun install
 
