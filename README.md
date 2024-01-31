@@ -5,7 +5,7 @@
 - 시대생 client 앱내 웹앱을 통해 이용 내역을 보여줍니다.
 
 ### 배포 링크
-- [recap.uoslife.com](recap.uoslife.com)
+- [https://recap.uoslife.com](https://recap.uoslife.com)
 
 ### 작업 기간
 - 2024.01
