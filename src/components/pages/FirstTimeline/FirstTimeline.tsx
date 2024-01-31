@@ -66,7 +66,7 @@ const FirstTimeline = () => {
               typograph={'headlineMedium'}
             />
             <Txt
-              label={`${recapInfo?.usageTime.useHour ?? ''}일`}
+              label={`${recapInfo?.usageTime.useTime ?? ''}일`}
               color={'primaryBrand'}
               typograph={'headlineMedium'}
               style={css`
@@ -88,7 +88,7 @@ const FirstTimeline = () => {
             `}>
             <Txt label={'총'} color={'grey190'} typograph={'headlineMedium'} />
             <Txt
-              label={`${recapInfo?.usageTime.useTime ?? ''}시간`}
+              label={`${recapInfo?.usageTime.useHour ?? ''}시간`}
               color={'primaryBrand'}
               typograph={'headlineMedium'}
               style={css`
