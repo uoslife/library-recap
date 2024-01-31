@@ -1,27 +1,16 @@
-# React + TypeScript + Vite
+# [TF] 도서관 Recap 이벤트: client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 소개
+- 시대생 유저의 2023년도 학교 도서관 이용내역을 스토리 형식으로 보여주고, Instagram 리그램 이벤트를 진행합니다.
+- 시대생 client 앱내 웹앱을 통해 이용 내역을 보여줍니다.
 
-Currently, two official plugins are available:
+### 작업 기간
+- 2024.01
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+### Install Dependencies
+```shell
+$ bun install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 배포 구조
+![image](https://github.com/uoslife/library-recap/assets/76601773/1e29f52f-7ddb-4147-9def-4cfb4ffced90)
