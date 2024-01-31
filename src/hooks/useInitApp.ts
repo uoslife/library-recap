@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import uoslifeBridge from '../bridge';
 import useUserStore from '../store/user';
-// import APIService from '../api/service';
-// import useRecapInfoStore from '../store/recapInfo';
+import APIService from '../api/service';
+import useRecapInfoStore from '../store/recapInfo';
 
 const useInitApp = () => {
   const { setUser, setDefaultUser } = useUserStore();
-  // const { setRecapInfo } = useRecapInfoStore();
+  const { setRecapInfo } = useRecapInfoStore();
 
   const handleUserInfo = async () => {
     try {
@@ -16,19 +16,19 @@ const useInitApp = () => {
       setDefaultUser();
     }
   };
-  // const handleRecapInfo = async () => {
-  //   try {
-  //     const recapInfo = await APIService.getLibraryHistories();
-  //     setRecapInfo(recapInfo);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
+  const handleRecapInfo = async () => {
+    try {
+      const recapInfo = await APIService.getLibraryHistories();
+      setRecapInfo(recapInfo);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   useEffect(() => {
     (async () => {
       handleUserInfo();
-      // handleRecapInfo();
+      handleRecapInfo();
     })();
   }, []);
 };
