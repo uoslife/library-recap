@@ -1,3 +1,9 @@
+type ErrorResponseType = {
+  code: string;
+  message: string;
+  status: number;
+};
+
 export type UserStyleType = 'MORNING' | 'DAY' | 'NIGHT';
 export type UsageRankingLevel = 0 | 1 | 2 | 3;
 
@@ -21,4 +27,5 @@ export type RecapInfoType = {
   usageRanking: Array<UsageRankingType>;
 };
 
-export type GetLibraryHistoriesResponse = RecapInfoType;
+export type GetLibraryHistoriesResponse = RecapInfoType &
+  Partial<ErrorResponseType>;

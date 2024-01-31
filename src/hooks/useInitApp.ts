@@ -17,12 +17,14 @@ const useInitApp = () => {
     }
   };
   const handleRecapInfo = async () => {
-    try {
-      const recapInfo = await APIService.getLibraryHistories();
-      setRecapInfo(recapInfo);
-    } catch (e) {
-      console.error(e);
+    const recapInfo = await APIService.getLibraryHistories();
+    if (recapInfo.status === 401) {
+      alert('서비스를 이용하기 위해 앱 재접속이 필요합니다.');
+      await uoslifeBridge.goBack();
+      return;
     }
+    setRecapInfo(recapInfo);
+    console.log(recapInfo);
   };
 
   useEffect(() => {
