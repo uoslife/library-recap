@@ -21,7 +21,8 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
   return (
     <TimelineLayout
       css={setBackgroundByUsageRankingLevel(
-        recapInfo?.usageRanking[0].level ?? DEFAULT_USAGE_RANKING_LEVEL,
+        recapInfo?.usageRanking[usageRankingOrder].level ??
+          DEFAULT_USAGE_RANKING_LEVEL,
       )}>
       <div
         css={css`
