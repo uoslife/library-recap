@@ -61,6 +61,11 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
               text-indent: 6px;
             `}
           />
+        </div>
+        <div
+          css={css`
+            display: flex;
+          `}>
           <Txt
             label={
               recapInfo?.usageRanking[usageRankingOrder].ranking.toString() ??
@@ -68,22 +73,18 @@ const RankingPage = ({ usageRankingOrder }: Props) => {
             }
             color={'primaryBrand'}
             typograph={'headlineLarge'}
-            style={css`
-              text-indent: 6px;
-            `}
           />
-          <Txt label={'번째로'} color={'grey190'} typograph={'headlineLarge'} />
-        </div>
-        <div
-          css={css`
-            display: flex;
-          `}>
           <Txt
-            label={'오래 도서관을 사용했어요~'}
+            label={'번째로 오래 도서관을'}
             color={'grey190'}
             typograph={'headlineLarge'}
           />
         </div>
+        <Txt
+          label={'사용했어요~'}
+          color={'grey190'}
+          typograph={'headlineLarge'}
+        />
       </div>
       <img
         css={css`
