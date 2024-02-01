@@ -153,7 +153,7 @@ const FirstTimeline = () => {
                 right: 0;
               `}>
               <Txt
-                label={recapInfo?.preferRegion.libraryName ?? ''}
+                label={recapInfo?.preferRegion.roomName ?? ''}
                 color={'grey190'}
                 typograph={'bodyLarge'}
                 style={css`
