@@ -65,13 +65,15 @@ const FirstTimeline = () => {
               color={'grey190'}
               typograph={'headlineMedium'}
             />
+          </div>
+          <div
+            css={css`
+              display: flex;
+            `}>
             <Txt
               label={`${recapInfo?.usageTime.useTime ?? ''}일`}
               color={'primaryBrand'}
               typograph={'headlineMedium'}
-              style={css`
-                text-indent: 6px;
-              `}
             />
             <Txt
               label={'출석하여'}
@@ -129,11 +131,16 @@ const FirstTimeline = () => {
               typograph={'headlineMedium'}
             />
             <Txt
-              label={`님의 선호 구역이에요.`}
+              label={`님의`}
               color={'grey190'}
               typograph={'headlineMedium'}
             />
           </div>
+          <Txt
+            label={`선호 구역이에요.`}
+            color={'grey190'}
+            typograph={'headlineMedium'}
+          />
         </S.DescriptionWrapper>
         <S.PreferRegionImgWrapper>
           <div
