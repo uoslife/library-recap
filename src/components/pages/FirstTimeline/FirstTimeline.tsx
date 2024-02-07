@@ -155,8 +155,8 @@ const FirstTimeline = () => {
             <div
               css={css`
                 position: absolute;
-                width: 80px;
-                top: 40px;
+                width: 118px;
+                top: 37px;
                 right: 0;
               `}>
               <Txt
