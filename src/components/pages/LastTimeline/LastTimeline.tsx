@@ -21,17 +21,24 @@ const LastTimeline = () => {
           flex-direction: column;
           gap: 8px;
         `}>
-        <div
-          css={css`
-            display: flex;
-          `}>
+        <div>
+          <div
+            css={css`
+              display: flex;
+            `}>
+            <Txt
+              label={user?.nickname ?? ''}
+              color={'primaryBrand'}
+              typograph={'headlineMedium'}
+            />
+            <Txt
+              label={'님의'}
+              color={'grey160'}
+              typograph={'headlineMedium'}
+            />
+          </div>
           <Txt
-            label={user?.nickname ?? ''}
-            color={'primaryBrand'}
-            typograph={'headlineMedium'}
-          />
-          <Txt
-            label={'님의 여정은 어떠셨나요?'}
+            label={'여정은 어떠셨나요?'}
             color={'grey160'}
             typograph={'headlineMedium'}
           />
