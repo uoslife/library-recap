@@ -26,6 +26,7 @@ const useInitApp = () => {
         await uoslifeBridge.goBack();
         return;
       }
+      setRecapInfo(retryRecapInfo);
     }
     if (recapInfo.status === 401) {
       alert('서비스를 이용하기 위해 앱 재접속이 필요합니다.');
