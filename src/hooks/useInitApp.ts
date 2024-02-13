@@ -18,6 +18,11 @@ const useInitApp = () => {
   };
   const handleRecapInfo = async () => {
     const recapInfo = await APIService.getLibraryHistories();
+    if (recapInfo.status === 400) {
+      alert('2023년 도서관 이용 기록이 없어요.');
+      await uoslifeBridge.goBack();
+      return;
+    }
     if (recapInfo.status === 401) {
       alert('서비스를 이용하기 위해 앱 재접속이 필요합니다.');
       await uoslifeBridge.goBack();
