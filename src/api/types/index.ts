@@ -29,3 +29,5 @@ export type RecapInfoType = {
 
 export type GetLibraryHistoriesResponse = RecapInfoType &
   Partial<ErrorResponseType>;
+
+export type FetchMethodType = 'GET' | 'POST';

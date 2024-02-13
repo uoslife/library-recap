@@ -7,4 +7,10 @@ export default class APIService extends APIClient {
       url: 'library-histories/recap?year=2023',
     });
   }
+  static async saveLibraryHistories() {
+    return await this.APIclient<Type.GetLibraryHistoriesResponse>({
+      url: 'library-histories/save?year=2023',
+      method: 'POST',
+    });
+  }
 }
