@@ -19,7 +19,11 @@ const useInitApp = () => {
   const handleRecapInfo = async () => {
     const recapInfo = await APIService.getLibraryHistories();
     if (recapInfo.status === 400) {
-      await APIService.saveLibraryHistories();
+      try {
+        await APIService.saveLibraryHistories();
+      } catch (error) {
+        console.error(error);
+      }
       const retryRecapInfo = await APIService.getLibraryHistories();
       if (retryRecapInfo.status === 400) {
         alert('2023년 도서관 이용 기록이 없어요.');
