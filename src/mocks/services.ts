@@ -2,8 +2,8 @@ import { GetLibraryHistoriesResponse } from '../api/types';
 
 export const getLibraryHistoriesMockReseponse: GetLibraryHistoriesResponse = {
   usageTime: {
-    useTime: 73,
-    useHour: 171,
+    useDays: 73,
+    useMinute: 171,
     hourData: [0, 0, 43, 21, 9, 10, 0, 3, 3, 32, 26, 24],
   },
   preferRegion: {

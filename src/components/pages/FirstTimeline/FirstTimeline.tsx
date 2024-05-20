@@ -71,7 +71,7 @@ const FirstTimeline = () => {
               display: flex;
             `}>
             <Txt
-              label={`${recapInfo?.usageTime.useTime ?? ''}일`}
+              label={`${recapInfo?.usageTime.useDays ?? ''}일`}
               color={'primaryBrand'}
               typograph={'headlineMedium'}
             />
@@ -90,7 +90,7 @@ const FirstTimeline = () => {
             `}>
             <Txt label={'총'} color={'grey190'} typograph={'headlineMedium'} />
             <Txt
-              label={`${recapInfo?.usageTime.useHour ?? ''}시간`}
+              label={`${recapInfo?.usageTime.useMinute ?? ''}시간`}
               color={'primaryBrand'}
               typograph={'headlineMedium'}
               style={css`
