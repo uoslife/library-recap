@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import ListCountCircle from '../../atoms/ListCountCircle';
 import useUserStore from '../../../store/user';
 import { Txt } from '@uoslife/design-system/web';
 
